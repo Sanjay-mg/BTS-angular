@@ -1,0 +1,77 @@
+<div class="jumbotron main">
+  <form class="createBug" id='createBug'>
+    <div class="row fieldRow">
+      <div class="col-sm-6">
+        <label for="Name">Name<span>*</span></label>
+        <input [(ngModel)]='bug.name' type="text" class="form-control" id='name' placeholder="Name" name="name" required>
+      </div>
+      <div class="col-sm-6">
+        <label for="severity">Severity</label>
+        <select [(ngModel)]='bug.severity' class="form-control" id='severity' name="severity">
+          <option value="LOW">LOW</option>
+          <option value="MEDIUM">MEDIUM</option>
+          <option value="HIGH">HIGH</option>
+        </select>
+      </div>
+    </div>
+    <div class="row fieldRow">
+      <div class="col-sm-6">
+        <label for="priority">Priority</label>
+        <select [(ngModel)]='bug.priority' name="priority" class="form-control" id='priority'>
+          <option value="LOW">LOW</option>
+          <option value="MEDIUM">MEDIUM</option>
+          <option value="HIGH">HIGH</option>
+        </select>
+      </div>
+      <div class="col-sm-6">
+        <label for="projectId">Project Id<span>*</span></label>
+        <input [(ngModel)]='bug.projectId' type="text" class="form-control" id='projectid' placeholder="Project Id" name="projectId" required>
+      </div>
+    </div>
+    <div class="row fieldRow">
+      <div class="col-sm-6">
+        <label for="type">Type</label>
+        <select [(ngModel)]='bug.type' name="type" class="form-control" id='type'>
+          <option value="UNITLEVEL">UNIT-LEVEL</option>
+          <option value="SYSTEMLEVEL">SYSTEM-LEVEL</option>
+          <option value="OUTOFBOUND">OUT OF BOUND</option>
+        </select>
+      </div>
+      <div class="col-sm-6">
+        <label for="pwd">Tester Id<span>*</span></label>
+        <input [(ngModel)]='bug.testerId' type="text" class="form-control" id='testerid' placeholder="Tester Id" name="testerId" required>
+      </div>
+    </div>
+    <div class="row fieldRow">
+      <div class="col-sm-6">
+        <label for="etaDate">ETA Date<span>*</span></label>
+          <input [(ngModel)]='bug.etaDate' id='etaDate' type="date" name="etaDate" class="form-control">
+      </div>
+      <div class="col-sm-6">
+        <label for="product">Product<span>*</span></label>
+				<input [(ngModel)]='bug.product' type="text" class="form-control" id='product' placeholder="Product" name="product" required>
+      </div>
+    </div>
+    <div class="row fieldRow">
+      <div class="col-sm-6">
+        <label for="module">Module<span>*</span></label>
+				<input [(ngModel)]='bug.module' type="text" class="form-control" id='module' placeholder="Module" name="module" required>
+      </div>
+      <div class="col-sm-6">
+        <label for="buildVersion">Build Version</label>
+				<input [(ngModel)]='bug.buildVersion' type="text" class="form-control" id='buildVersion' placeholder="Build Version" name="buildVersion">
+      </div>
+    </div>
+    <div class="row fieldRow">
+      <div class="col-sm-6">
+        <label for="synopsis">Synopsis<span>*</span></label>
+				<textarea [(ngModel)]='bug.synopsis' id='synopsis' class="form-control" name="synopsis" rows="2" required></textarea>
+      </div>
+      <div class="col-sm-6">
+        <label for="descrption">Description<span>*</span></label>
+				<textarea [(ngModel)]='bug.description' id='description' class="form-control" name="descrption" rows="2" required></textarea>
+      </div>
+    </div>
+  </form>
+  <button (click)='createBug()' class="btn btn-primary btn-lg btn-block">Submit</button>
+</div>
