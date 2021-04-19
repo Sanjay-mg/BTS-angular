@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BugService } from '../bug.service';
+import { Bug } from '../Bug';
 
 @Component({
   selector: 'app-search-bug',
@@ -6,9 +8,37 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-bug.component.css']
 })
 export class SearchBugComponent implements OnInit {
+  bug:Bug = new Bug();
+  bugResult:any;
+  bugArray:Bug[]=[];
+  name: string = '';
+  status:string = 'NEW';
+  constructor(private bugService: BugService) { }
+  searchBug() {
+    const bugName = this.name.trim();
+    if (bugName) {
+      const promise = this.bugService.getBugByName(bugName);
+      promise.subscribe(response => {
+        this.bugResult = response;
+        if(this.bugResult.length){
+          this.bugResult.forEach(bug => {
+            this.bugArray.push(bug);
+          });
+        }
+        else{
+          alert("Invalid Bug Name");
+        }
+      },
+        error => {
+          console.log(error);
+          alert('error happened..')
+        })
+    }
+    else {
+      console.log(this.status);
 
-  constructor() { }
-
+    }
+  }
   ngOnInit(): void {
   }
 

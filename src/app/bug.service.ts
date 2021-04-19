@@ -17,4 +17,7 @@ export class BugService {
   getAllBugs(){
     return this.http.get(URL);
   }
+  getBugByName(name:string){
+    return this.http.get(URL+name);
+  }
 }
