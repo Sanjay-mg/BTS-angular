@@ -1,0 +1,24 @@
+<table class="table table-striped">
+  <thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Priority</th>
+    <th>Type</th>
+    <th>Severity</th>
+    <th>Synopsis</th>
+    <th>Description</th>
+    <th>Status</th>
+  </thead>
+  <tbody>
+    <tr *ngFor='let bug of bugArray'>
+      <td>{{bug.id}}</td>
+      <td>{{bug.name}}</td>
+      <td>{{bug.priority}}</td>
+      <td>{{bug.type}}</td>
+      <td>{{bug.severity}}</td>
+      <td>{{bug.synopsis}}</td>
+      <td>{{bug.description}}</td>
+      <td>{{bug.status}}</td>
+    </tr>
+  </tbody>
+</table>
