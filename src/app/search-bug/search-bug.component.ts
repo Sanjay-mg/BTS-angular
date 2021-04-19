@@ -8,11 +8,11 @@ import { Bug } from '../Bug';
   styleUrls: ['./search-bug.component.css']
 })
 export class SearchBugComponent implements OnInit {
-  bug:Bug = new Bug();
-  bugResult:any;
-  bugArray:Bug[]=[];
+  bug: Bug = new Bug();
+  bugResult: any;
+  bugArray: Bug[] = [];
   name: string = '';
-  status:string = 'NEW';
+  status: string = 'NEW';
   constructor(private bugService: BugService) { }
   searchBug() {
     const bugName = this.name.trim();
@@ -20,23 +20,34 @@ export class SearchBugComponent implements OnInit {
       const promise = this.bugService.getBugByName(bugName);
       promise.subscribe(response => {
         this.bugResult = response;
-        if(this.bugResult.length){
-          this.bugResult.forEach(bug => {
-            this.bugArray.push(bug);
-          });
+        if (this.bugResult.length) {
+          this.bugArray = this.bugResult;
         }
-        else{
+        else {
           alert("Invalid Bug Name");
         }
       },
         error => {
           console.log(error);
           alert('error happened..')
-        })
+        });
     }
     else {
-      console.log(this.status);
-
+      const status = this.status;
+      const promise = this.bugService.getBugByStatus(status);
+      promise.subscribe(response => {
+        this.bugResult = response;
+        if (this.bugResult.length) {
+          this.bugArray = this.bugResult;
+        }
+        else {
+          alert("No Bug with Status : " + status + " found");
+        }
+      },
+        error => {
+          console.log(error);
+          alert('error happened..')
+        })
     }
   }
   ngOnInit(): void {

@@ -11,5 +11,9 @@ table{
   margin-top: 50px;
 }
 label{
+  align-self: center;
   margin-right: -20px;
+}
+button{
+  margin-left: -50px;
 }
