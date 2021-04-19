@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router'
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from "@angular/forms";
 import { AppComponent } from './app.component';
@@ -8,6 +9,13 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { FooterComponent } from './footer/footer.component';
 import { ViewBugsComponent } from './view-bugs/view-bugs.component';
 import { SearchBugComponent } from './search-bug/search-bug.component';
+
+const routes: Routes = [
+  {path:'createBug', component:CreateBugFormComponent},
+  {path:'searchBug', component:SearchBugComponent},
+  {path:'viewBugs', component:ViewBugsComponent},
+  {path:'',component:CreateBugFormComponent}
+];
 
 @NgModule({
   declarations: [
@@ -19,7 +27,7 @@ import { SearchBugComponent } from './search-bug/search-bug.component';
     SearchBugComponent
   ],
   imports: [
-    BrowserModule, FormsModule,HttpClientModule,
+    BrowserModule, FormsModule,HttpClientModule,RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent]
