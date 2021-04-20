@@ -15,22 +15,27 @@ export class SearchBugComponent implements OnInit {
   status: string = 'NEW';
   constructor(private bugService: BugService) { }
   searchBug() {
-    const bugName = this.name.trim();
+    const bugName = this.name;
     if (bugName) {
-      const promise = this.bugService.getBugByName(bugName);
+      if(bugName.trim()){
+        const promise = this.bugService.getBugByName(bugName);
       promise.subscribe(response => {
         this.bugResult = response;
         if (this.bugResult.length) {
           this.bugArray = this.bugResult;
         }
         else {
-          alert("Invalid Bug Name");
+          alert("Record not found");
         }
       },
         error => {
           console.log(error);
           alert('error happened..')
         });
+      }
+      else{
+        alert("Record not found");
+      }
     }
     else {
       const status = this.status;

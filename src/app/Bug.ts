@@ -1,5 +1,5 @@
 export class Bug{
-  id:string = '';
+  id:any;
   name:string = 'Bug';
   priority:string = 'LOW';
   type:string = 'UNITLEVEL';
@@ -9,7 +9,7 @@ export class Bug{
   severity:string = 'LOW';
   projectId:string = 'project1';
   testerId:string = 'tester1';
-  developerId:string = '';
+  developerId:any;
   product:string = 'product1';
   synopsis:string = '';
   description:string = '';

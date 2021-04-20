@@ -1,23 +1,21 @@
-<table class="table table-striped">
+<table class="table table-striped  table-bordered">
   <thead>
-    <th>Id</th>
     <th>Name</th>
     <th>Priority</th>
     <th>Type</th>
     <th>Severity</th>
-    <th>Synopsis</th>
-    <th>Description</th>
+    <th>Submitted On</th>
+    <th>ETA Date</th>
     <th>Status</th>
   </thead>
   <tbody>
     <tr *ngFor='let bug of bugArray'>
-      <td>{{bug.id}}</td>
       <td>{{bug.name}}</td>
       <td>{{bug.priority}}</td>
       <td>{{bug.type}}</td>
       <td>{{bug.severity}}</td>
-      <td>{{bug.synopsis}}</td>
-      <td>{{bug.description}}</td>
+      <td>{{bug.submittedOn| date: 'd/M/yy'}}</td>
+      <td>{{bug.etaDate| date: 'd/M/yy'}}</td>
       <td>{{bug.status}}</td>
     </tr>
   </tbody>
