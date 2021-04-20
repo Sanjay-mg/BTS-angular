@@ -9,12 +9,14 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { FooterComponent } from './footer/footer.component';
 import { ViewBugsComponent } from './view-bugs/view-bugs.component';
 import { SearchBugComponent } from './search-bug/search-bug.component';
+import { UpdateBugComponent } from './update-bug/update-bug.component';
 
 const routes: Routes = [
   {path:'createBug', component:CreateBugFormComponent},
   {path:'searchBug', component:SearchBugComponent},
   {path:'viewBugs', component:ViewBugsComponent},
-  {path:'',component:CreateBugFormComponent}
+  {path:'',component:CreateBugFormComponent},
+  {path:'updateBug', component:UpdateBugComponent}
 ];
 
 @NgModule({
@@ -24,7 +26,8 @@ const routes: Routes = [
     NavigationBarComponent,
     FooterComponent,
     ViewBugsComponent,
-    SearchBugComponent
+    SearchBugComponent,
+    UpdateBugComponent
   ],
   imports: [
     BrowserModule, FormsModule,HttpClientModule,RouterModule.forRoot(routes),
