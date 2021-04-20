@@ -35,6 +35,9 @@ export class CreateBugFormComponent implements OnInit {
     else if (this.bug.product.length > 50) {
       alert("product name cannot be more than 50 character");
     }
+    else if (!this.bug.etaDate.trim()) {
+      alert("Please provide eta date");
+    }
     else if (!this.bug.module.trim()) {
       alert("Please provide module name");
     }
@@ -67,7 +70,8 @@ export class CreateBugFormComponent implements OnInit {
       },
         error => {
           console.log(error);
-          alert('error happened..')
+          if (!error.ok)
+            alert("Error !! : " + error.headers.get("error"))
         })
     }
   }

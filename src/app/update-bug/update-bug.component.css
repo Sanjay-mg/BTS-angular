@@ -1,0 +1,26 @@
+.formContainer{
+  width: 50%;
+  margin: 20px auto;
+}
+.nameLable{
+  align-self: center;
+  text-align: right;
+}
+.main{
+  margin: 30px 0px;
+}
+.updateBug{
+  width: 80%;
+  margin: 0px auto 25px;
+}
+span {
+	color: red;
+	margin-left: 4px;
+}
+.fieldRow{
+ margin-bottom: 20px;
+}
+button{
+  width: 90%;
+  margin: 0px auto;
+}

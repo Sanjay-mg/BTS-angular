@@ -14,5 +14,5 @@ export class Bug{
   synopsis:string = '';
   description:string = '';
   submittedOn:Date = new Date();
-  etaDate:Date = new Date();
+  etaDate:string = '';
 }

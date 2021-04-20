@@ -23,4 +23,9 @@ export class BugService {
   getBugByStatus(status:string){
     return this.http.get(URL+'/status/'+status);
   }
+  update(bug:Bug,bugId:string){
+    return this.http.put(URL+bugId,bug,{
+      headers: {"content-type": 'application/json' }
+    });
+  }
 }
