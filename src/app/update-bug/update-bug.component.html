@@ -103,11 +103,13 @@
     <div class="row fieldRow">
       <div class="col-sm-6">
         <label for="synopsis">Synopsis<span>*</span></label>
-				<textarea [(ngModel)]='bug.synopsis' id='synopsis' class="form-control" name="synopsis" rows="2" placeholder="Synopsis should be between 10 and 50 characters" required></textarea>
+				<textarea [(ngModel)]='bug.synopsis' (ngModelChange)='valueChange(bug.synopsis.length)' id='synopsis' class="form-control" name="synopsis" rows="2" placeholder="Synopsis should be between 10 and 50 characters" required></textarea>
+        <div>{{remainingText + " character left"}}</div>
       </div>
       <div class="col-sm-6">
         <label for="descrption">Description<span>*</span></label>
-				<textarea [(ngModel)]='bug.description' id='description' class="form-control" name="descrption" rows="2" placeholder="Description must be between 10 to 100 character" required></textarea>
+				<textarea [(ngModel)]='bug.description' (ngModelChange)='valueChange1(bug.description.length)' id='description' class="form-control" name="descrption" rows="2" placeholder="Description must be between 10 to 100 character" required></textarea>
+        <div>{{remainingText1 + " character left"}}</div>
       </div>
     </div>
     <input [(ngModel)]='bug.submittedOn' type="hidden" name="submittedOn" id='submittedOn'>

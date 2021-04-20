@@ -10,10 +10,26 @@ import { BugService } from '../bug.service';
 export class UpdateBugComponent implements OnInit {
   bug: Bug = new Bug();
   bugResult: any;
-  newDate:Date;
+  newDate: Date;
   bugArray: Bug[] = [];
   name: string = '';
+  remainingText = 50;
+  remainingText1 = 100;
   constructor(private bugService: BugService) { }
+  valueChange(value: number) {
+    this.remainingText = 50 - value;
+    if (this.remainingText < 0) {
+      this.remainingText = 0;
+      alert("Synopsis cannot be more than 50 character");
+    }
+  }
+  valueChange1(value: number) {
+    this.remainingText1 = 100 - value;
+    if (this.remainingText1 < 0) {
+      this.remainingText1 = 0;
+      alert("Description cannot be more than 100 character");
+    }
+  }
   searchBug() {
     const bugName = this.name;
     if (bugName) {
@@ -24,6 +40,8 @@ export class UpdateBugComponent implements OnInit {
           if (this.bugResult.length) {
             this.bugArray = this.bugResult;
             this.bugArray.forEach(bug => {
+              this.remainingText = 50 - bug.synopsis.length;
+              this.remainingText1 = 100 - bug.description.length;
               const etaDate = bug.etaDate;
               if (etaDate) {
                 const resultDate = etaDate.split('T')[0];
@@ -109,7 +127,7 @@ export class UpdateBugComponent implements OnInit {
       alert("description cannot be more than 100 character");
     }
     else {
-      const promise = this.bugService.update(this.bug,this.bug.id);
+      const promise = this.bugService.update(this.bug, this.bug.id);
       promise.subscribe(response => {
         console.log(response);
         alert('Bug Updated..')

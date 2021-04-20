@@ -9,7 +9,24 @@ import { BugService } from '../bug.service';
 })
 export class CreateBugFormComponent implements OnInit {
   bug: Bug = new Bug();
+  remainingText = 50;
+  remainingText1 = 100;
   constructor(private bugservice: BugService) { }
+
+  valueChange(value: number){
+    this.remainingText = 50 - value;
+    if(this.remainingText<0){
+      this.remainingText = 0;
+      alert("Synopsis cannot be more than 50 character");
+    }
+  }
+  valueChange1(value: number){
+    this.remainingText1 = 100 - value;
+    if(this.remainingText1<0){
+      this.remainingText1 = 0;
+      alert("Description cannot be more than 100 character");
+    }
+  }
   createBug() {
     if (!this.bug.name.trim()) {
       alert("Please provide bug name");
@@ -75,6 +92,7 @@ export class CreateBugFormComponent implements OnInit {
         })
     }
   }
+
   ngOnInit(): void {
   }
 
