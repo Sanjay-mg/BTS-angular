@@ -9,48 +9,28 @@ import { BugService } from '../bug.service';
 })
 export class CreateBugFormComponent implements OnInit {
   bug: Bug = new Bug();
-  remainingText = 50;
-  remainingText1 = 100;
+  remainingText = 0;
+  remainingText1 = 0;
   constructor(private bugservice: BugService) { }
 
   valueChange(value: number){
-    this.remainingText = 50 - value;
-    if(this.remainingText<0){
-      this.remainingText = 0;
-      alert("Synopsis cannot be more than 50 character");
-    }
+    this.remainingText = value;
   }
   valueChange1(value: number){
-    this.remainingText1 = 100 - value;
-    if(this.remainingText1<0){
-      this.remainingText1 = 0;
-      alert("Description cannot be more than 100 character");
-    }
+    this.remainingText1 = value;
   }
   createBug() {
     if (!this.bug.name.trim()) {
       alert("Please provide bug name");
     }
-    else if (this.bug.name.length > 10) {
-      alert("Bug name cannot be more than 10 character");
-    }
     else if (!this.bug.projectId.trim()) {
       alert("Please provide project id");
-    }
-    else if (this.bug.projectId.length > 15) {
-      alert("project id cannot be more than 15 character");
     }
     else if (!this.bug.testerId.trim()) {
       alert("Please provide tester id");
     }
-    else if (this.bug.testerId.length > 15) {
-      alert("tester id cannot be more than 15 character");
-    }
     else if (!this.bug.product.trim()) {
       alert("Please provide product name");
-    }
-    else if (this.bug.product.length > 50) {
-      alert("product name cannot be more than 50 character");
     }
     else if (!this.bug.etaDate.trim()) {
       alert("Please provide eta date");
@@ -58,37 +38,26 @@ export class CreateBugFormComponent implements OnInit {
     else if (!this.bug.module.trim()) {
       alert("Please provide module name");
     }
-    else if (this.bug.module.length > 15) {
-      alert("module name cannot be more than 15 character");
-    }
     else if (!this.bug.buildVersion.trim()) {
       alert("Please provide build version");
-    }
-    else if (this.bug.buildVersion.length > 6) {
-      alert("build version cannot be more than 6 character");
     }
     else if (!this.bug.synopsis.trim()) {
       alert("Please provide synopsis");
     }
-    else if (this.bug.synopsis.length > 50) {
-      alert("Synopsis cannot be more than 50 character");
-    }
     else if (!this.bug.description.trim()) {
       alert("Please provide description");
     }
-    else if (this.bug.description.length > 100) {
-      alert("description cannot be more than 100 character");
-    }
     else {
+      this.bug.status = 'NEW';
       const promise = this.bugservice.create(this.bug);
       promise.subscribe(response => {
         console.log(response);
-        alert('Bug Created..')
+        alert('Bug Created..');
       },
         error => {
           console.log(error);
           if (!error.ok)
-            alert("Error !! : " + error.headers.get("error"))
+            alert("Error occurred ");
         })
     }
   }

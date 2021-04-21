@@ -3,7 +3,7 @@ export class Bug{
   name:string = 'Bug';
   priority:string = 'LOW';
   type:string = 'UNITLEVEL';
-  status:string = 'NEW';
+  status:string = '';
   module:string = 'module';
   buildVersion:string = 'v1';
   severity:string = 'LOW';

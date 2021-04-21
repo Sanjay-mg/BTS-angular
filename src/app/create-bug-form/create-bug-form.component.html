@@ -1,9 +1,9 @@
-<div class="jumbotron main">
+<div class="main">
   <form class="createBug" id='createBug'>
     <div class="row fieldRow">
       <div class="col-sm-6">
         <label for="Name">Name<span>*</span></label>
-        <input [(ngModel)]='bug.name' type="text" class="form-control" id='name' placeholder="Name" name="name" required>
+        <input [(ngModel)]='bug.name' maxlength=100 type="text" class="form-control" id='name' placeholder="Name" name="name" required>
       </div>
       <div class="col-sm-6">
         <label for="severity">Severity</label>
@@ -25,7 +25,7 @@
       </div>
       <div class="col-sm-6">
         <label for="projectId">Project Id<span>*</span></label>
-        <input [(ngModel)]='bug.projectId' type="text" class="form-control" id='projectid' placeholder="Project Id" name="projectId" required>
+        <input [(ngModel)]='bug.projectId' maxlength=30 type="text" class="form-control" id='projectid' placeholder="Project Id" name="projectId" required>
       </div>
     </div>
     <div class="row fieldRow">
@@ -39,7 +39,7 @@
       </div>
       <div class="col-sm-6">
         <label for="pwd">Tester Id<span>*</span></label>
-        <input [(ngModel)]='bug.testerId' type="text" class="form-control" id='testerid' placeholder="Tester Id" name="testerId" required>
+        <input [(ngModel)]='bug.testerId' maxlength=30 type="text" class="form-control" id='testerid' placeholder="Tester Id" name="testerId" required>
       </div>
     </div>
     <div class="row fieldRow">
@@ -49,29 +49,29 @@
       </div>
       <div class="col-sm-6">
         <label for="product">Product<span>*</span></label>
-				<input [(ngModel)]='bug.product' type="text" class="form-control" id='product' placeholder="Product" name="product" required>
+				<input [(ngModel)]='bug.product' maxlength=100 type="text" class="form-control" id='product' placeholder="Product" name="product" required>
       </div>
     </div>
     <div class="row fieldRow">
       <div class="col-sm-6">
         <label for="module">Module<span>*</span></label>
-				<input [(ngModel)]='bug.module' type="text" class="form-control" id='module' placeholder="Module" name="module" required>
+				<input [(ngModel)]='bug.module' maxlength=50 type="text" class="form-control" id='module' placeholder="Module" name="module" required>
       </div>
       <div class="col-sm-6">
         <label for="buildVersion">Build Version</label>
-				<input [(ngModel)]='bug.buildVersion' type="text" class="form-control" id='buildVersion' placeholder="Build Version" name="buildVersion">
+				<input [(ngModel)]='bug.buildVersion' maxlength=10 type="text" class="form-control" id='buildVersion' placeholder="Build Version" name="buildVersion">
       </div>
     </div>
     <div class="row fieldRow">
       <div class="col-sm-6">
         <label for="synopsis">Synopsis<span>*</span></label>
-        <textarea [(ngModel)]='bug.synopsis' (ngModelChange)='valueChange(bug.synopsis.length)' id='synopsis' class="form-control" name="synopsis" rows="2" placeholder="Synopsis should be between 10 and 50 characters" required></textarea>
-        <div>{{remainingText + " character left"}}</div>
+        <textarea [(ngModel)]='bug.synopsis' (ngModelChange)='valueChange(bug.synopsis.length)' maxlength=50 id='synopsis' class="form-control" name="synopsis" rows="2" placeholder="Synopsis should be between 10 and 50 characters" required></textarea>
+        <div>{{remainingText + " characters"}}</div>
       </div>
       <div class="col-sm-6">
         <label for="descrption">Description<span>*</span></label>
-        <textarea [(ngModel)]='bug.description' (ngModelChange)='valueChange1(bug.description.length)' id='description' class="form-control" name="descrption" rows="2" placeholder="Description must be between 10 to 100 character" required></textarea>
-        <div>{{remainingText1 + " character left"}}</div>
+        <textarea [(ngModel)]='bug.description' (ngModelChange)='valueChange1(bug.description.length)' maxlength=100 id='description' class="form-control" name="descrption" rows="2" placeholder="Description must be between 10 to 100 character" required></textarea>
+        <div>{{remainingText1 + " characters"}}</div>
       </div>
     </div>
   </form>

@@ -18,14 +18,17 @@ export class BugService {
     return this.http.get(URL);
   }
   getBugByName(name:string){
-    return this.http.get(URL+'/name/'+name);
+    return this.http.get(URL+'name/'+name);
   }
   getBugByStatus(status:string){
-    return this.http.get(URL+'/status/'+status);
+    return this.http.get(URL+'status/'+status);
   }
   update(bug:Bug,bugId:string){
     return this.http.put(URL+bugId,bug,{
       headers: {"content-type": 'application/json' }
     });
+  }
+  getBugByNameAndStatus(name:string,status:string){
+    return this.http.get(URL+'search/'+name+'?status='+status);
   }
 }
