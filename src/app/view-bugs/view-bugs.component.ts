@@ -10,6 +10,10 @@ export class ViewBugsComponent implements OnInit {
   @Input() bug:Bug = new Bug();
   remainingText = 0;
   remainingText1 = 0;
+  ngOnChanges(){
+    this.remainingText = this.bug.synopsis.length;
+    this.remainingText1 = this.bug.description.length;
+  }
   constructor() {
    }
   valueChange(value: number){
