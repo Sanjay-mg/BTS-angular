@@ -38,6 +38,8 @@
     <th>Priority</th>
     <th>Type</th>
     <th>Severity</th>
+    <th>Developer Id</th>
+    <th>Tester Id</th>
     <th>Submitted On</th>
     <th>ETA Date</th>
     <th>Status</th>
@@ -45,9 +47,11 @@
   <tbody>
     <tr *ngFor='let bug of bugArray'>
       <td>{{bug.name}}</td>
-      <td>{{bug.priority}}</td>
-      <td>{{bug.type}}</td>
-      <td>{{bug.severity}}</td>
+      <td>{{bug.priority | lowercase}}</td>
+      <td>{{bug.type | lowercase}}</td>
+      <td>{{bug.severity | lowercase}}</td>
+      <td>{{bug.developerId}}</td>
+      <td>{{bug.testerId}}</td>
       <td>{{bug.submittedOn| date: 'd/M/yy'}}</td>
       <td>{{bug.etaDate| date: 'd/M/yy'}}</td>
       <td>{{bug.status}}</td>

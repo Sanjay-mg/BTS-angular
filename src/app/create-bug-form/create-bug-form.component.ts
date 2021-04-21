@@ -9,16 +9,8 @@ import { BugService } from '../bug.service';
 })
 export class CreateBugFormComponent implements OnInit {
   bug: Bug = new Bug();
-  remainingText = 0;
-  remainingText1 = 0;
   constructor(private bugservice: BugService) { }
 
-  valueChange(value: number){
-    this.remainingText = value;
-  }
-  valueChange1(value: number){
-    this.remainingText1 = value;
-  }
   createBug() {
     if (!this.bug.name.trim()) {
       alert("Please provide bug name");

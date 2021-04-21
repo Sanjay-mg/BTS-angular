@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Bug } from '../Bug';
-import { BugService } from '../bug.service';
 
 @Component({
   selector: 'app-view-bugs',
@@ -8,13 +7,18 @@ import { BugService } from '../bug.service';
   styleUrls: ['./view-bugs.component.css']
 })
 export class ViewBugsComponent implements OnInit {
-  bug:Bug = new Bug();
-  bugArray:any;
-  constructor(private bugservice:BugService) { }
-
+  @Input() bug:Bug = new Bug();
+  remainingText = 0;
+  remainingText1 = 0;
+  constructor() {
+   }
+  valueChange(value: number){
+    this.remainingText = value;
+  }
+  valueChange1(value: number){
+    this.remainingText1 = value;
+  }
   ngOnInit(): void {
-    const observable = this.bugservice.getAllBugs();
-    observable.subscribe(response => this.bugArray = response, error => console.log(error));
   }
 
 }

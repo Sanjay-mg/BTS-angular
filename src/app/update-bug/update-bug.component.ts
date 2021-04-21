@@ -13,15 +13,7 @@ export class UpdateBugComponent implements OnInit {
   newDate: Date;
   bugArray: Bug[] = [];
   name: string = '';
-  remainingText = 0;
-  remainingText1 = 0;
   constructor(private bugService: BugService) { }
-  valueChange(value: number) {
-    this.remainingText = value;
-  }
-  valueChange1(value: number) {
-    this.remainingText1 = value;
-  }
   searchBug() {
     const bugName = this.name;
     if (bugName) {
@@ -32,8 +24,6 @@ export class UpdateBugComponent implements OnInit {
           if (this.bugResult.length) {
             this.bugArray = this.bugResult;
             this.bugArray.forEach(bug => {
-              this.remainingText = bug.synopsis.length;
-              this.remainingText1 = bug.description.length;
               const etaDate = bug.etaDate;
               if (etaDate) {
                 const resultDate = etaDate.split('T')[0];
