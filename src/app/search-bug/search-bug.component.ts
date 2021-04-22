@@ -18,8 +18,6 @@ export class SearchBugComponent implements OnInit {
     const bugName = this.name;
     const status = this.status;
     if (bugName && !status) {
-      console.log("only name");
-
       if (bugName.trim()) {
         const promise = this.bugService.getBugByName(bugName);
         promise.subscribe(response => {
@@ -33,7 +31,6 @@ export class SearchBugComponent implements OnInit {
           }
         },
           error => {
-            console.log(error);
             alert('error happened..')
           });
       }
@@ -43,7 +40,6 @@ export class SearchBugComponent implements OnInit {
       }
     }
     else if (status && !bugName) {
-      console.log("only status");
       const promise = this.bugService.getBugByStatus(status);
       promise.subscribe(response => {
         this.bugResult = response;
@@ -56,12 +52,10 @@ export class SearchBugComponent implements OnInit {
         }
       },
         error => {
-          console.log(error);
           alert('error happened..')
         })
     }
     else if (bugName && status) {
-      console.log("both name and status");
       const promise = this.bugService.getBugByNameAndStatus(bugName, status);
       promise.subscribe(response => {
         this.bugResult = response;
@@ -74,22 +68,29 @@ export class SearchBugComponent implements OnInit {
         }
       },
         error => {
-          console.log(error);
           alert('error happened..')
         })
     }
     else {
-      console.log("no name or status");
-
       const observable = this.bugService.getAllBugs();
       observable.subscribe(response => {
         this.bugResult = response;
         if (this.bugResult.length) {
           this.bugArray = this.bugResult;
         }
-      }, error => console.log(error));
+      }, error => alert("Error occurred"));
     }
   }
+  deleteBug(id:string){
+    const observable = this.bugService.deleteBug(id);
+    observable.subscribe(response => {
+      alert("Bug deleted");
+      this.bugArray = [];
+    }, error => {
+      alert("Error occurred");
+    });
+  }
+
   ngOnInit(): void {
   }
 

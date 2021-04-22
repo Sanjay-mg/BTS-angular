@@ -29,7 +29,7 @@
     </div>
   </form>
   <div class="col-sm-2">
-    <button (click)='searchBug()' class="btn btn-primary btn-block">Search</button>
+    <button (click)='searchBug()' class="btn btn-primary btn-block searchBtn">Search</button>
   </div>
 </div>
 <table class="table table-striped table-bordered">
@@ -43,6 +43,7 @@
     <th>Submitted On</th>
     <th>ETA Date</th>
     <th>Status</th>
+    <th>Delete</th>
   </thead>
   <tbody>
     <tr *ngFor='let bug of bugArray'>
@@ -55,6 +56,7 @@
       <td>{{bug.submittedOn| date: 'd/M/yy'}}</td>
       <td>{{bug.etaDate| date: 'd/M/yy'}}</td>
       <td>{{bug.status}}</td>
+      <td><button (click)='deleteBug(bug.id)' class="btn btn-danger btn-sm tableBtn">Delete</button></td>
     </tr>
   </tbody>
 </table>

@@ -73,14 +73,14 @@
       <textarea [(ngModel)]='bug.synopsis' (ngModelChange)='valueChange(bug.synopsis.length)' maxlength=50 id='synopsis'
         class="form-control" name="synopsis" rows="3" placeholder="Synopsis should be between 10 and 50 characters"
         required></textarea>
-      <div>{{remainingText + " characters"}}</div>
+      <div>{{(50 - remainingText) + " character left"}}</div>
     </div>
     <div class="col-sm-6">
       <label for="descrption">Description<span>*</span></label>
       <textarea [(ngModel)]='bug.description' (ngModelChange)='valueChange1(bug.description.length)' maxlength=100
         id='description' class="form-control" name="descrption" rows="3"
         placeholder="Description must be between 10 to 100 character" required></textarea>
-      <div>{{remainingText1 + " characters"}}</div>
+      <div>{{(100 - remainingText1) + " character left"}}</div>
     </div>
   </div>
 </form>

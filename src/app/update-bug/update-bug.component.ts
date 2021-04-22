@@ -37,7 +37,6 @@ export class UpdateBugComponent implements OnInit {
           }
         },
           error => {
-            console.log(error);
             if (!error.ok)
               alert("Error !! : " + error.headers.get("error"))
           });
@@ -59,6 +58,9 @@ export class UpdateBugComponent implements OnInit {
     }
     else if (!this.bug.testerId.trim()) {
       alert("Please provide tester id");
+    }
+    else if (!this.bug.developerId) {
+      alert("Please provide developer id");
     }
     else if (!this.bug.developerId.trim()) {
       alert("Please provide developer id");
@@ -84,13 +86,21 @@ export class UpdateBugComponent implements OnInit {
     else {
       const promise = this.bugService.update(this.bug, this.bug.id);
       promise.subscribe(response => {
-        console.log(response);
         alert('Bug Updated..')
       },
         error => {
-          console.log(error);
-          if (!error.ok)
-            alert("Error !! : " + error.headers.get("error"))
+          if (!error.ok) {
+            let message: string = error.headers.get("error");
+            if (message.length < 50) {
+              alert("Error !! : " + error.headers.get("error"));
+            }
+            else if (message.indexOf('ETA') > -1) {
+              alert("ETA Date cannot be a past date");
+            }
+            else {
+              alert("Error occurred");
+            }
+          }
         })
     }
   }

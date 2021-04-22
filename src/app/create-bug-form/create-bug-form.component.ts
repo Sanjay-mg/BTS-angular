@@ -43,13 +43,18 @@ export class CreateBugFormComponent implements OnInit {
       this.bug.status = 'NEW';
       const promise = this.bugservice.create(this.bug);
       promise.subscribe(response => {
-        console.log(response);
         alert('Bug Created..');
       },
         error => {
-          console.log(error);
-          if (!error.ok)
-            alert("Error occurred ");
+          if (!error.ok) {
+            let message: string = error.headers.get("error");
+            if (message.indexOf('ETA') > -1) {
+              alert("ETA Date cannot be a past date");
+            }
+            else {
+              alert("Error occurred");
+            }
+          }
         })
     }
   }
