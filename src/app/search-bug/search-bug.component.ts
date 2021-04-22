@@ -81,11 +81,11 @@ export class SearchBugComponent implements OnInit {
       }, error => alert("Error occurred"));
     }
   }
-  deleteBug(id:string){
+  deleteBug(id:string,index:number){
     const observable = this.bugService.deleteBug(id);
     observable.subscribe(response => {
       alert("Bug deleted");
-      this.bugArray = [];
+      this.bugArray.splice(index,1);
     }, error => {
       alert("Error occurred");
     });
