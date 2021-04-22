@@ -91,8 +91,8 @@ export class UpdateBugComponent implements OnInit {
         error => {
           if (!error.ok) {
             let message: string = error.headers.get("error");
-            if (message.length < 50) {
-              alert("Error !! : " + error.headers.get("error"));
+            if (message.length < 100) {
+              alert("Error !! :" + error.headers.get("error"));
             }
             else if (message.indexOf('ETA') > -1) {
               alert("ETA Date cannot be a past date");
