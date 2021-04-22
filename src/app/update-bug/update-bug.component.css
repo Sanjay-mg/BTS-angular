@@ -1,13 +1,13 @@
 .formContainer{
-  width: 60%;
+  width: 70%;
   margin: 20px auto;
 }
 .nameLable{
   align-self: center;
-  text-align: right;
+  text-align: center;
 }
 .main{
-  margin:20px 0px 30px;
+  margin:0px 0px 30px;
 }
 form{
   width: 80%;
@@ -24,6 +24,5 @@ span {
   margin-bottom: -5px;
 }
 button{
-  width: 90%;
   margin: 0px auto;
 }

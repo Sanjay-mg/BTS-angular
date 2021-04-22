@@ -1,11 +1,11 @@
 <div class="row formContainer">
-  <form id='searchBugForm' class="col-sm-10">
+  <form id='searchBugForm' class="col-sm-9">
     <div class="row">
-      <label class="col-sm-4 nameLable" for="bugName">Bug Name</label>
-      <input [(ngModel)]='name' class="form-control col-sm-8" name="bugName" id='bugName'>
+      <label class="col-sm-3 nameLable" for="bugName">Bug Name</label>
+      <input [(ngModel)]='name' class="form-control col-sm-9" name="bugName" id='bugName'>
     </div>
   </form>
-  <div class="col-sm-2">
+  <div class="col-sm-3">
     <button (click)='searchBug()' class="btn btn-primary btn-block">Search</button>
   </div>
 </div>
