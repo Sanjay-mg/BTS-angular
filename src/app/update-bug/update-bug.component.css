@@ -26,3 +26,6 @@ span {
 button{
   margin: 0px auto;
 }
+.updateBtn{
+  width: 90%;
+}

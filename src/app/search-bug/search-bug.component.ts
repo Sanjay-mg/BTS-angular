@@ -19,7 +19,7 @@ export class SearchBugComponent implements OnInit {
     const status = this.status;
     if (bugName && !status) {
       if (bugName.trim()) {
-        const promise = this.bugService.getBugByName(bugName);
+        const promise = this.bugService.getBugByPartialName(bugName);
         promise.subscribe(response => {
           this.bugResult = response;
           if (this.bugResult.length) {

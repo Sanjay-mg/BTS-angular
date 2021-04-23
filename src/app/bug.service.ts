@@ -20,6 +20,9 @@ export class BugService {
   getBugByName(name:string){
     return this.http.get(URL+'name/'+name);
   }
+  getBugByPartialName(name:string){
+    return this.http.get(URL+name);
+  }
   getBugByStatus(status:string){
     return this.http.get(URL+'status/'+status);
   }
