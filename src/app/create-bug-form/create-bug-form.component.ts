@@ -36,8 +36,14 @@ export class CreateBugFormComponent implements OnInit {
     else if (!this.bug.synopsis.trim()) {
       alert("Please provide synopsis");
     }
+    else if (this.bug.synopsis.length<10) {
+      alert("Synopsis should be atleast 10 characters");
+    }
     else if (!this.bug.description.trim()) {
       alert("Please provide description");
+    }
+    else if (this.bug.description.length<10) {
+      alert("Description should be atleast 10 characters");
     }
     else {
       this.bug.status = 'NEW';
