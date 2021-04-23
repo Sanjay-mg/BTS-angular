@@ -15,7 +15,7 @@ table{
 }
 label{
   align-self: center;
-  margin-right: -1.25em;
+  text-align: right;
 }
 .searchBtn{
   display: inline-block;
@@ -28,5 +28,27 @@ label{
   .searchBtn{
     margin-top: 15px;
     margin-left: -30px;
+  }
+  .hide{
+    display: none;
+  }
+  label{
+    text-align: left;
+  }
+}
+@media(max-width:800px){
+  .firstHide{
+    display: none;
+  }
+  label{
+    text-align: left;
+  }
+}
+@media(max-width:680px){
+  .firstHide,.secondHide{
+    display: none;
+  }
+  label{
+    text-align: left;
   }
 }

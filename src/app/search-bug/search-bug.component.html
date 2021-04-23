@@ -37,11 +37,11 @@
   <thead>
     <th>Name</th>
     <th>Priority</th>
-    <th>Type</th>
-    <th>Severity</th>
-    <th>Developer Id</th>
-    <th>Tester Id</th>
-    <th>Submitted On</th>
+    <th class="hide">Type</th>
+    <th class="hide">Severity</th>
+    <th class="hide firstHide">Developer Id</th>
+    <th class="hide firstHide">Tester Id</th>
+    <th class="hide secondHide">Submitted On</th>
     <th>ETA Date</th>
     <th>Status</th>
     <th>Delete</th>
@@ -50,11 +50,11 @@
     <tr *ngFor='let bug of bugArray;index as i'>
       <td>{{bug.name}}</td>
       <td>{{bug.priority | lowercase}}</td>
-      <td>{{bug.type | lowercase}}</td>
-      <td>{{bug.severity | lowercase}}</td>
-      <td>{{bug.developerId}}</td>
-      <td>{{bug.testerId}}</td>
-      <td>{{bug.submittedOn| date: 'd/M/yy'}}</td>
+      <td class="hide">{{bug.type | lowercase}}</td>
+      <td class="hide">{{bug.severity | lowercase}}</td>
+      <td class="hide firstHide">{{bug.developerId}}</td>
+      <td class="hide firstHide">{{bug.testerId}}</td>
+      <td class="hide secondHide">{{bug.submittedOn| date: 'd/M/yy'}}</td>
       <td>{{bug.etaDate| date: 'd/M/yy'}}</td>
       <td>{{bug.status}}</td>
       <td><button (click)='deleteBug(bug.id,i,bug.name)' class="btn btn-danger btn-sm tableBtn">Delete</button></td>
